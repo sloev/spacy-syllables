@@ -1,8 +1,8 @@
-![spacy syllables](https://raw.githubusercontent.com/sloev/spacy_syllables/master/header.jpg)
+![spacy syllables](https://raw.githubusercontent.com/sloev/spacy-syllables/master/header.jpg)
 
 # Spacy Syllables
 
-[![Build Status](https://travis-ci.org/sloev/spacy_syllables.svg?branch=master)](https://travis-ci.org/sloev/spacy_syllables) [![Latest Version](https://img.shields.io/pypi/v/spacy_syllables.svg)](https://pypi.python.org/pypi/spacy_syllables) [![Python Support](https://img.shields.io/pypi/pyversions/spacy_syllables.svg)](https://pypi.python.org/pypi/spacy_syllables)
+[![Build Status](https://travis-ci.org/sloev/spacy-syllables.svg?branch=master)](https://travis-ci.org/sloev/spacy-syllables) [![Latest Version](https://img.shields.io/pypi/v/spacy-syllables.svg)](https://pypi.python.org/pypi/spacy-syllables) [![Python Support](https://img.shields.io/pypi/pyversions/spacy-syllables.svg)](https://pypi.python.org/pypi/spacy-syllables)
 
 A [spacy 2+ pipeline component](https://spacy.io/universe/category/pipeline) for adding multilingual syllable annotation to tokens. 
 
@@ -23,11 +23,12 @@ which also installs the following dependencies:
 
 ## Usage
 
-The [`SpacySyllables`](spacy_syllables/__init__.py) autodetects language from the given spacy nlp instance, but you can also override the detected language by specifying the `lang` parameter during instantiation, see how [here](tests/test_all.py).
+The [`SpacySyllables`](spacy_syllables/__init__.py) class autodetects language from the given spacy nlp instance, but you can also override the detected language by specifying the `lang` parameter during instantiation, see how [here](tests/test_all.py).
 
 ### Normal usecase
 
 ```python
+
 import spacy
 from spacy_syllables import SpacySyllables
 
@@ -37,27 +38,13 @@ syllables = SpacySyllables(nlp)
 
 nlp.add_pipe(syllables, after="tagger")
 
-assert nlp.pipe_names == [
-    "tagger", 
-    "syllables", 
-    "parser", 
-    "ner"
-]
+assert nlp.pipe_names == ["tagger", "syllables", "parser", "ner"]
 
 doc = nlp("terribly long")
 
-data = [
-    (
-        token.text, 
-        token._.syllables, 
-        token._.syllables_count
-    ) for token in doc
-]
+data = [(token.text, token._.syllables, token._.syllables_count) for token in doc]
 
-assert data ==  [
-    ("terribly", ["ter", "ri", "bly"], 3),
-    ("long", ["long"], 1)
-]
+assert data == [("terribly", ["ter", "ri", "bly"], 3), ("long", ["long"], 1)]
 
 ```
 
@@ -80,6 +67,7 @@ then install the dev package and pyenv versions
 
 ```bash
 $ poetry install
+$ poetry --session install_pyenv_versions
 ```
 
 ### run tests
