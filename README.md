@@ -67,7 +67,7 @@ then install the dev package and pyenv versions
 
 ```bash
 $ poetry install
-$ poetry --session install_pyenv_versions
+$ poetry run nox --session install_pyenv_versions
 ```
 
 ### run tests

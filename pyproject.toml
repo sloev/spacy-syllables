@@ -3,7 +3,7 @@ create = false
 
 [tool.poetry]
 name = "spacy_syllables"
-version = "0.0.1"
+version = "1.0.0"
 description = "Multilingual syllable annotation pipeline component for spacy"
 authors = ["sloev <johannes.valbjorn@gmail.com>"]
 homepage = "https://github.com/sloev/spacy-syllables"
