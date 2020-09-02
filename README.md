@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/sloev/spacy-syllables.svg?branch=master)](https://travis-ci.org/sloev/spacy-syllables) [![Latest Version](https://img.shields.io/pypi/v/spacy-syllables.svg)](https://pypi.python.org/pypi/spacy-syllables) [![Python Support](https://img.shields.io/pypi/pyversions/spacy-syllables.svg)](https://pypi.python.org/pypi/spacy-syllables)
 
+<a href="https://www.buymeacoffee.com/sloev" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-pink.png" alt="Buy Me A Coffee" height="51px" width="217px"></a>
+
 A [spacy 2+ pipeline component](https://spacy.io/universe/category/pipeline) for adding multilingual syllable annotation to tokens. 
 
 * Uses well established [pyphen](https://github.com/Kozea/Pyphen) for the syllables.
