@@ -27,8 +27,8 @@ include = [
 
 [tool.poetry.dependencies]
 python = "^3.6"
-spacy = "^2.2.3"
-pyphen = "^0.9.5"
+spacy = "^3.0.3"
+pyphen = "^0.9.5" #{ git= "https://github.com/Kozea/Pyphen", rev = "9e9c4b89dccf3e11314b2f0ac639bc81f54e7699"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.5"
