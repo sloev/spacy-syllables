@@ -36,11 +36,9 @@ from spacy_syllables import SpacySyllables
 
 nlp = spacy.load("en_core_web_sm")
 
-syllables = SpacySyllables(nlp)
+nlp.add_pipe("syllables", after="tagger")
 
-nlp.add_pipe(syllables, after="tagger")
-
-assert nlp.pipe_names == ["tagger", "syllables", "parser", "ner"]
+assert nlp.pipe_names == ["tok2vec", "tagger", "syllables", "parser", "ner", "attribute_ruler", "lemmatizer"]
 
 doc = nlp("terribly long")
 
