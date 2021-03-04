@@ -50,9 +50,9 @@ assert data == [("terribly", ["ter", "ri", "bly"], 3), ("long", ["long"], 1)]
 
 more examples in [tests](tests/test_all.py)
 
-## Migrating from Spacy 2.x to 3.0
+## Migrating from spacy 2.x to 3.0
 
-In spacy 2.x, spacy_syllables was originally added to the pipeline by instantiating a `SpacySyllables` object with the desired options and adding it to the pipeline: 
+In spacy 2.x, spacy_syllables was originally added to the pipeline by instantiating a [`SpacySyllables`](spacy_syllables/__init__.py) object with the desired options and adding it to the pipeline: 
 
 ```python
 from spacy_syllables import SpacySyllables
@@ -79,7 +79,7 @@ spacy 2.x:
 assert nlp.pipe_names == ["tagger", "syllables", "parser", "ner"]
 ```
 
-Spacy 3.0:
+spacy 3.0:
 ```python
 assert nlp.pipe_names == ["tok2vec", "tagger", "syllables", "parser", "ner", "attribute_ruler", "lemmatizer"]
 ```
