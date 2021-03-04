@@ -30,7 +30,7 @@ class SpacySyllables:
             nlp = spacy.load("en_core_web_sm")
             nlp.add_pipe("syllables", after="tagger", config={"lang": "en_US"})
         """
-        self.name = name or "syllables"
+        self.name = name
         lang = lang or nlp.lang
         lang, *country_code = lang.lower().replace("-", "_").split("_")
         if country_code:
