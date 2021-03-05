@@ -5,21 +5,20 @@ from spacy.language import Language
 import pyphen
 
 
-@Language.factory("syllables",
-                  assigns=["token._.syllables", "token._.syllables_count"],
-                  default_config={"lang": None},
-                  requires=["token.text"]
-                  )
-def make_spacysyllables(
-        nlp: Language,
-        name: str,
-        lang: Optional[str]
-):
+@Language.factory(
+    "syllables",
+    assigns=["token._.syllables", "token._.syllables_count"],
+    default_config={"lang": None},
+    requires=["token.text"],
+)
+def make_spacysyllables(nlp: Language, name: str, lang: Optional[str]):
     return SpacySyllables(nlp, name, lang=lang)
 
 
 class SpacySyllables:
-    def __init__(self, nlp: Language, name: str = "syllables", lang: Optional[str] = None):
+    def __init__(
+        self, nlp: Language, name: str = "syllables", lang: Optional[str] = None
+    ):
 
         """
         nlp: an instance of spacy
