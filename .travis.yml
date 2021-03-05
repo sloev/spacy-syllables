@@ -23,9 +23,5 @@ install:
 script:
   - poetry run nox --non-interactive --session "$NOXSESSION"
 
-branches:
-  only:
-    - master
-
 notifications:
   email: false
