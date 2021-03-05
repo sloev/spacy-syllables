@@ -36,11 +36,9 @@ from spacy_syllables import SpacySyllables
 
 nlp = spacy.load("en_core_web_sm")
 
-syllables = SpacySyllables(nlp)
+nlp.add_pipe("syllables", after="tagger")
 
-nlp.add_pipe(syllables, after="tagger")
-
-assert nlp.pipe_names == ["tagger", "syllables", "parser", "ner"]
+assert nlp.pipe_names == ["tok2vec", "tagger", "syllables", "parser", "ner", "attribute_ruler", "lemmatizer"]
 
 doc = nlp("terribly long")
 
@@ -52,6 +50,39 @@ assert data == [("terribly", ["ter", "ri", "bly"], 3), ("long", ["long"], 1)]
 
 more examples in [tests](tests/test_all.py)
 
+## Migrating from spacy 2.x to 3.0
+
+In spacy 2.x, spacy_syllables was originally added to the pipeline by instantiating a [`SpacySyllables`](spacy_syllables/__init__.py) object with the desired options and adding it to the pipeline: 
+
+```python
+from spacy_syllables import SpacySyllables
+
+syllables = SpacySyllables(nlp, "en_US")
+
+nlp.add_pipe(syllables, after="tagger")
+```
+
+In spacy 3.0, you now add the component to the pipeline simply by adding it by name, setting custom configuration information in the `add_pipe()` parameters:
+```python
+from spacy_syllables import SpacySyllables
+
+nlp.add_pipe("syllables", after="tagger", config={"lang": "en_US"})
+```
+
+
+
+In addition, the default pipeline components have changed between 2.x and 3.0; please make sure to update any asserts you have that check for these.
+e.g.:
+
+spacy 2.x:
+```python
+assert nlp.pipe_names == ["tagger", "syllables", "parser", "ner"]
+```
+
+spacy 3.0:
+```python
+assert nlp.pipe_names == ["tok2vec", "tagger", "syllables", "parser", "ner", "attribute_ruler", "lemmatizer"]
+```
 
 ## Dev setup / testing
 

@@ -5,13 +5,12 @@ from spacy_syllables import SpacySyllables
 
 def test_simple_english():
     nlp = spacy.load("en_core_web_sm")
-    syllables = SpacySyllables(nlp)
-    nlp.add_pipe(syllables, after="tagger")
+    nlp.add_pipe("syllables", after="tagger")
 
     doc = nlp("This is a terribly long sentence. And i dont care")
 
     print(nlp.pipe_names)
-    assert nlp.pipe_names == ["tagger", "syllables", "parser", "ner"]
+    assert nlp.pipe_names == ["tok2vec", "tagger", "syllables", "parser", "ner", "attribute_ruler", "lemmatizer"]
 
     data = [(token.text, token._.syllables, token._.syllables_count) for token in doc]
     print(data)

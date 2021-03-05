@@ -27,8 +27,8 @@ include = [
 
 [tool.poetry.dependencies]
 python = "^3.6"
-spacy = "^2.2.3"
-pyphen = "^0.9.5"
+spacy = "^3.0.3"
+pyphen = "^0.10.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.5"
