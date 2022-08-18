@@ -53,7 +53,7 @@ class SpacySyllables:
         Token.set_extension("syllables_count", default=None, force=True)
 
     def syllables(self, word: str):
-        if word.isalpha():
+        if word.replace('-', '').isalpha():
             return "-".join((map(self.syllable_dic.inserted, word.lower().split('-')))).split("-")
         return None
 
