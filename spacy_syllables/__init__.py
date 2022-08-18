@@ -54,7 +54,7 @@ class SpacySyllables:
 
     def syllables(self, word: str):
         if word.isalpha():
-            return self.syllable_dic.inserted(word.lower()).split("-")
+            return "-".join((map(self.syllable_dic.inserted, word.lower().split('-')))).split("-")
         return None
 
     def __call__(self, doc: Doc):
