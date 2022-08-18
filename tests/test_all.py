@@ -7,7 +7,7 @@ def test_simple_english():
     nlp = spacy.load("en_core_web_sm")
     nlp.add_pipe("syllables", after="tagger")
 
-    doc = nlp("This is a terribly long well-informed sentence. And i dont care")
+    doc = nlp("This is a terribly long sentence. And i dont care")
 
     print(nlp.pipe_names)
     assert nlp.pipe_names == [
@@ -29,7 +29,6 @@ def test_simple_english():
         ("a", ["a"], 1),
         ("terribly", ["ter", "ri", "bly"], 3),
         ("long", ["long"], 1),
-        ("well-informed", ["well", "in", "formed"], 3),
         ("sentence", ["sen", "tence"], 2),
         (".", None, None),
         ("And", ["and"], 1),
