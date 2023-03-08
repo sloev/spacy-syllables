@@ -2,7 +2,7 @@
 
 # Spacy Syllables
 
-[![Build Status](https://travis-ci.com/sloev/spacy-syllables.svg?branch=master)](https://travis-ci.com/sloev/spacy-syllables) [![Latest Version](https://img.shields.io/pypi/v/spacy-syllables.svg)](https://pypi.python.org/pypi/spacy-syllables) [![Python Support](https://img.shields.io/pypi/pyversions/spacy-syllables.svg)](https://pypi.python.org/pypi/spacy-syllables)
+![example workflow](https://github.com/sloev/spacy-syllables/actions/workflows/test.yml/badge.svg) [![Latest Version](https://img.shields.io/pypi/v/spacy-syllables.svg)](https://pypi.python.org/pypi/spacy-syllables) [![Python Support](https://img.shields.io/pypi/pyversions/spacy-syllables.svg)](https://pypi.python.org/pypi/spacy-syllables)
 
 <a href="https://www.buymeacoffee.com/sloev" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-pink.png" alt="Buy Me A Coffee" height="51px" width="217px"></a>
 
@@ -88,7 +88,6 @@ assert nlp.pipe_names == ["tok2vec", "tagger", "syllables", "parser", "ner", "at
 
 we are using
 * [poetry](https://python-poetry.org/) for the package
-* [nox](https://github.com/theacodes/nox) for the tests
 * [pyenv](https://github.com/pyenv/pyenv) for specifying python versions for nox tests
 
 ### install
