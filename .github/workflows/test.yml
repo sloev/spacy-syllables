@@ -22,8 +22,10 @@ jobs:
           pip install -e ".[dev]"
       - name: Lint with black
         run: |
+          black --version
           black --check .
       - name: Test with pytest
         run: |
+          pytest --version
           python -m spacy download en_core_web_sm
           pytest
