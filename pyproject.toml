@@ -1,3 +1,35 @@
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "spacy_syllables"
+version = "3.0.2"
+description = "spacy pipeline component for syllables"
+readme = "README.md"
+authors = [{ name = "sloev", email = "johannes.valbjorn@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 6 - Mature",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+keywords = ["spacy", "pyphen", "syllable", "syllables"]
+dependencies = [
+    "spacy >= 3.0.3",
+    "pyphen >= 0.10.0",
+]
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = ["black", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/sloev/spacy-syllables"
