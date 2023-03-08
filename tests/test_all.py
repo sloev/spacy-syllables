@@ -10,7 +10,7 @@ def test_simple_english():
     doc = nlp("This is a terribly long sentence. And i dont care")
 
     print(nlp.pipe_names)
-    assert "syllables" in nlp.pipe_names 
+    assert "syllables" in nlp.pipe_names
 
     data = [(token.text, token._.syllables, token._.syllables_count) for token in doc]
     print(data)
