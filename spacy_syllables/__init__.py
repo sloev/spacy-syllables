@@ -19,7 +19,6 @@ class SpacySyllables:
     def __init__(
         self, nlp: Language, name: str = "syllables", lang: Optional[str] = None
     ):
-
         """
         nlp: an instance of spacy
         name: defaults to "syllables".
@@ -53,8 +52,10 @@ class SpacySyllables:
         Token.set_extension("syllables_count", default=None, force=True)
 
     def syllables(self, word: str):
-        if word.isalpha():
-            return self.syllable_dic.inserted(word.lower()).split("-")
+        if word.replace("-", "").isalpha():
+            return "-".join(
+                (map(self.syllable_dic.inserted, word.lower().split("-")))
+            ).split("-")
         return None
 
     def __call__(self, doc: Doc):
