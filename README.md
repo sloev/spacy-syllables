@@ -86,24 +86,18 @@ assert nlp.pipe_names == ["tok2vec", "tagger", "syllables", "parser", "ner", "at
 
 ## Dev setup / testing
 
-we are using
-* [poetry](https://python-poetry.org/) for the package
-* [pyenv](https://github.com/pyenv/pyenv) for specifying python versions for nox tests
-
 ### install
 
-* [install pyenv](https://github.com/pyenv/pyenv#installation)
-* [install poetry](https://python-poetry.org/docs/#installation)
-
-then install the dev package and pyenv versions
+install the dev package and pyenv versions
 
 ```bash
-$ poetry install
-$ poetry run nox --session install_pyenv_versions
+$ pip install -e ".[dev]"
+$ python -m spacy download en_core_web_sm
 ```
 
 ### run tests
 
 ```bash
-$ poetry run nox
+$ black .
+$ pytest
 ```
